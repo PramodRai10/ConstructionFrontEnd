@@ -46,10 +46,9 @@ function Header() {
     axios(config)
       .then(function (response) {
         //console.log(JSON.stringify(response.data));
-        let data1 = JSON.stringify(response.data);
-        data1 = JSON.parse(data1);
+        let data1 = response.data;
         if (response.status == 200) {
-          var updatedData = JSON.parse(data1.body).map((e)=>{
+          var updatedData = data1.map((e)=>{
               delete e['image_url_api'];
               return e;
           })
